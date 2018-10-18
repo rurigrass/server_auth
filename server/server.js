@@ -9,7 +9,7 @@ const url = "mongodb://localhost:27017/auth"
 const parser = { useNewUrlParser: true, useCreateIndex: true };
 
 mongoose.Promise = global.Promise;
-mongoose.connect(url, parser);
+mongoose.connect(process.env.MONGODB_URI || url, parser);
 
 const { User } = require('./models/user');
 const { auth } = require('./middleware/auth');
